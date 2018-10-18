@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>预约</title>
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+	<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+</head>
+<body>
+	<div class="warp">
+		<header><div class="header">开始预约</div></header>
+		<div class="line"><div>就诊机构：</div><div>圣大中医馆</div></div>
+		<div class="line"><div>日期：</div><div>2018-10-16</div></div>
+		<div class="line"><div>科室：</div><div>中医</div></div>
+		<div class="box">
+			<img src="2.jpg">
+			<div class="words">
+				<div class="title">
+					<span>徐霞</span>
+					<span>主治中医师</span>
+					<span><div>有号</div></span>
+				</div>
+				<div class="disc">介绍：毕业于广州中医药大学，本科学历，广东省针灸协会社区医疗专业委员会委员，东莞市中医学会基层中医药专家指导工作委员会委员、针灸推拿委员会委员，曾前往三甲医院进修康复专业。擅长运用针灸康复、中药内服外敷等方法治疗肩颈腰腿痛证、关节炎、痛风、偏头痛等各类慢性疼痛；面瘫、中风后遗症；失眠、疲劳等亚健康调理。</div>
+			</div>
+		</div>
+		<div class="times">
+			<div class="weui-cells weui-cells_radio">
+				<div class="timesTitle">请选择班次：</div>
+			    <label class="weui-cell weui-check__label">
+			        <div class="weui-cell__bd">
+			            <p>晚上 17:30 ~ 21:00 余号：14</p>
+			        </div>
+			        <div class="weui-cell__ft">
+			            <input type="radio" class="weui-check" checked="checked">
+			            <span class="weui-icon-checked"></span>
+			        </div>
+			    </label>
+			    <!-- <label class="weui-cell weui-check__label">
+			        <div class="weui-cell__bd">
+			            <p>cell standard</p>
+			        </div>
+			        <div class="weui-cell__ft">
+			            <input type="radio" name="radio1" class="weui-check">
+			            <span class="weui-icon-checked"></span>
+			        </div>
+			    </label> -->
+			</div>
+		</div>
+		<div class="sicker">
+			
+			<div class="weui-cells weui-cells_form">
+				<div class="sickerTitle">请填写就诊人信息：</div>
+				<div class="weui-cell weui-cell_vcode inpLine">
+			        <div class="weui-cell__hd">
+			            <label class="weui-label">姓名</label>
+			        </div>
+			        <div class="weui-cell__bd">
+			            <input class="weui-input" type="text" placeholder="请输入姓名">
+			        </div>
+			    </div>
+			    <div class="weui-cell weui-cell_vcode inpLine">
+			    	<div class="weui-cell__hd">
+			            <label class="weui-label">性别</label>
+			        </div>
+			        <div class="weui-cell__bd">
+				        <div class="weui-cell weui-cell_select">
+					        <div class="weui-cell__bd">
+					            <select class="weui-select" style="padding-left: 0;">
+					                <option value="请选择">请选择</option>
+					                <option value="男">男</option>
+					                <option value="女">女</option>
+					            </select>
+					        </div>
+					    </div>
+				    </div>
+			    </div>
+			    <div class="weui-cell weui-cell_vcode inpLine">
+			        <div class="weui-cell__hd">
+			            <label class="weui-label">手机号</label>
+			        </div>
+			        <div class="weui-cell__bd">
+			            <input class="weui-input" type="tel" placeholder="请输入手机号">
+			        </div>
+			    </div>
+			    
+			</div>
+			<div class="weui-cells__tips">请如实填写，以便联系使用。</div>
+		</div>
+		<div class="weui-btn-area">
+		    <span class="weui-btn weui-btn_primary">提交预约</span>
+		</div>
+		<div class="botHelp"></div>
+	</div>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		html,body{height: 100%;}
+		.warp{background: #eee;height: 100%;overflow-y: scroll;}
+		header{background: #26BEFD;width: 100%;height: 32px;padding-top: 8px}
+		.header{color: white;border-left: 2px solid white;width: 60px;height: 24px;line-height: 24px;text-align: center;margin: 0 15px;}
+		.line{width: 100%;height: 36px;line-height: 36px;border-bottom: 1px solid #eee;background: white;}
+		.line div{float: left;font-size: 16px;}
+		.line:after{content: '';display: block;clear: both;}
+		.line div:nth-child(1){text-align: right;width: 30%;}
+		.line div:nth-child(2){text-align: center;width: 70%;}
+		.box{display: flex;width: 100%;border-bottom: 1px solid #eee;border-top: 1px solid #eee;padding: 10px 0;background: white;margin-top: 20px;}
+		.box>img{width:70px;height: 70px;margin: 5px 15px;}
+		.words{flex-grow：1}
+		.title{display: flex;margin-bottom: 5px;}
+		.title>span{flex: 1;line-height: 20px;font-size: 16px;}
+		.title>span:nth-child(1){font-size: 18px;font-weight: 600;}
+		.title>span>div{font-size: 14px;text-align: center;background: green;color: white;width: 50px;height: 20px;border-radius: 4px;margin: 0 auto;}
+		.disc{color: #888888;}
+		.times{margin-bottom: 20px;}
+		.timesTitle{font-size: 14px;padding-left: 10px;height: 26px;line-height: 26px;}
+		.sicker{margin-bottom: 20px;}
+		.sickerTitle{font-size: 14px;padding-left: 10px;height: 26px;line-height: 26px;}
+		.inpLine{height: 36px;line-height: 36px;}
+		.botHelp{width: 100%;height: 30px;}
+	</style>
+</body>
+</html>

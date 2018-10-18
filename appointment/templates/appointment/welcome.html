@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>预约</title>
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+	<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    {% load static %}
+</head>
+<body>
+	<div class="warp">
+        <img src={% static 'appointment/2.jpg' %} class="faceImg">
+		<div class="box">
+			<header>圣大中医馆<div class="book">点击预约</div></header>
+			<p>地址：地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球地球</p>
+			<p>电话：<a href="tel:0769-22401990">0769-22401990</a></p>
+		</div>
+	</div>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.warp{width: 96%;margin: 20px auto;border: 1px solid #eee;border-radius: 4px;box-shadow: 3px 3px 6px #ccc;}
+		.faceImg{width: 80%;margin: 20px auto;display: block;}
+		.box{width: 86%;margin: 20px auto;}
+		header{font-size: 18px;}
+		.book{float: right;font-size: 14px;color: white;background: #26BEFD;border-radius: 5px;overflow: hidden;padding: 0 5px;}
+	</style>
+	<script type="text/javascript">
+		document.getElementsByClassName('book')[0].onclick = function(){
+			window.location.href = 'cu.html';
+		}
+	</script>
+</body>
+</html>
