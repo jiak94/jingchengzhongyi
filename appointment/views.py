@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Doctor, Appointment
+from .models import Doctor, Appointment, TimeSlot
+import datetime
 
 # Create your views here.
 def index(request):
@@ -18,8 +19,20 @@ def doctors(request):
 
 
 def timeslot(request, doctor_id):
-    response = "You are looking at the time slot of doctor %s"
-    return HttpResponse(response % doctor_id)
+    time_slot = TimeSlot.objects.all().filter(
+        doctor= doctor_id,
+        date__gte=datetime.date.today(),
+        remaining__gt=0
+    )
+    doctor = Doctor.objects.get(id=doctor_id)
+
+    context = {
+        'slots': time_slot,
+        'doctor': doctor
+    }
+    # response = "You are looking at the time slot of doctor %s"
+    # return HttpResponse(response % doctor_id)
+    return render(request, 'appointment/book.html', context)
 
 
 def booking(request, timeslot_id):
