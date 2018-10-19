@@ -15,14 +15,14 @@
 		<div class="line"><div>就诊机构：</div><div>圣大中医馆</div></div>
 		<div class="line"><div>科室：</div><div>中医</div></div>
 		<div class="box">
-			<img src="2.jpg">
+            <img src={{ doctor.image.url }}>
 			<div class="words">
 				<div class="title">
-					<span>徐霞</span>
-					<span>主治中医师</span>
+                    <span>{{ doctor.lastname }}{{ doctor.firstname }}</span>
+                    <span>{{ doctor.occupation }}</span>
 					<span><div>有号</div></span>
 				</div>
-				<div class="disc">介绍：毕业于广州中医药大学，本科学历，广东省针灸协会社区医疗专业委员会委员，东莞市中医学会基层中医药专家指导工作委员会委员、针灸推拿委员会委员，曾前往三甲医院进修康复专业。擅长运用针灸康复、中药内服外敷等方法治疗肩颈腰腿痛证、关节炎、痛风、偏头痛等各类慢性疼痛；面瘫、中风后遗症；失眠、疲劳等亚健康调理。</div>
+                <div class="disc">{{ doctor.description }}</div>
 			</div>
 		</div>
 		<div class="times">
@@ -36,8 +36,9 @@
 				        <div class="weui-cell weui-cell_select">
 					        <div class="weui-cell__bd">
 					            <select class="weui-select" style="padding-left: 0;">
-					                <option value="2018-10-18">2018-10-18</option>
-					                <option value="2018-10-19">2018-10-19</option>
+                                    {% for slot in slots %}
+                                    <option value="{{ slot.id }}">{{ slot.date }}</option>
+                                    {% endfor %}
 					            </select>
 					        </div>
 					    </div>
@@ -45,13 +46,17 @@
 			    </div>
 			    <div class="timesTitle">请选择班次：</div>
 			    <label class="weui-cell weui-check__label">
-			        <div class="weui-cell__bd">
-			            <p>晚上 17:30 ~ 21:00 余号：14</p>
+                    {% for slot in slots %}
+			        <div class="weui-cell__bd time_detail" data-evt="{{ slot.id }}">
+                        <p >{{ slot.start_time }} ~ {{ slot.end_time }} 
+                        余号: {{ slot.remaining }}</p>
+			            <!-- <p>晚上 17:30 ~ 21:00 余号：14</p> -->
 			        </div>
-			        <div class="weui-cell__ft">
-			            <input type="radio" class="weui-check" checked="checked">
+			        <div class="weui-cell__ft" data-evt="{{ slot.id }}">
+			            <input type="radio" class="weui-check">
 			            <span class="weui-icon-checked"></span>
 			        </div>
+                    {% endfor %}
 			    </label>
 			    <!-- <label class="weui-cell weui-check__label">
 			        <div class="weui-cell__bd">
@@ -65,7 +70,6 @@
 			</div>
 		</div>
 		<div class="sicker">
-			
 			<div class="weui-cells weui-cells_form">
 				<div class="sickerTitle">请填写就诊人信息：</div>
 				<div class="weui-cell weui-cell_vcode inpLine">
@@ -135,5 +139,15 @@
 		.inpLine{height: 36px;line-height: 36px;}
 		.botHelp{width: 100%;height: 30px;}
 	</style>
+
+    <script>
+        $('select').change(function() {
+            var $evt = $(this).val();
+            console.log($evt);
+            $(':input[type="checkbox"]').prop('checked', false);
+            $('.time_detail').hide()
+            $('[data-evt="'+ $evt +'"]').show();
+        });
+    </script>
 </body>
 </html>

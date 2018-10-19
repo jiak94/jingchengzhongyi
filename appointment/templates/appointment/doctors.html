@@ -15,25 +15,21 @@
 		<div class="line"><div>就诊机构：</div><div>圣大中医馆</div></div>
 		<div class="line"><div>科室：</div><div>中医</div></div>
 		<div class="listTit">医生列表</div>
-		<a href="tj.html">
             {% for doctor in doctors %}
+            <a href="{% url 'appointment:timeslot' doctor_id=doctor.id %}">
 			<div class="box">
                 <img src="{{ doctor.image.url }}">
 				<div class="words">
 					<div class="title">
                         <span>{{doctor.lastname}}{{doctor.firstname}}</span>
                         <span>{{ doctor.occupation }}</span>
-                        <!-- {% if doctor.remaining > 0  %} -->
-                        <!--     <span><div>有号</div></span> -->
-                        <!-- {% else %} -->
-                        <!--     <span><div>无号</div></span> -->
-                        <!-- {% endif %} -->
 					</div>
                     <div class="disc">
                         {{ doctor.description }}
                     </div>
 				</div>
 			</div>
+            </a>
             {% endfor %}
 		</a>
 		
