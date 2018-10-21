@@ -10,8 +10,6 @@ def index(request):
 
 def doctors(request):
     doctors = Doctor.objects.all()
-    print(len(doctors))
-    # return HttpResponse("Looking at Doctor's List")
     context = {
         "doctors": doctors
     }
