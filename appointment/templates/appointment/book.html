@@ -37,27 +37,31 @@
 					        <div class="weui-cell__bd">
 					            <select class="weui-select" style="padding-left: 0;">
                                     {% for slot in slots %}
-                                    <option value="{{ slot.id }}">{{ slot.date }}</option>
+                                    <option value="{{ slot.id }}">
+                                    {{ slot.date }}
+                                    {{ slot.start_time }} ~ {{slot.end_time}}
+                                    余号: {{ slot.remaining }}
+                                    </option>
                                     {% endfor %}
 					            </select>
 					        </div>
 					    </div>
 				    </div>
 			    </div>
-			    <div class="timesTitle">请选择班次：</div>
-			    <label class="weui-cell weui-check__label">
-                    {% for slot in slots %}
-			        <div class="weui-cell__bd time_detail" data-evt="{{ slot.id }}">
-                        <p >{{ slot.start_time }} ~ {{ slot.end_time }} 
-                        余号: {{ slot.remaining }}</p>
-			            <!-- <p>晚上 17:30 ~ 21:00 余号：14</p> -->
-			        </div>
-			        <div class="weui-cell__ft" data-evt="{{ slot.id }}">
-			            <input type="radio" class="weui-check">
-			            <span class="weui-icon-checked"></span>
-			        </div>
-                    {% endfor %}
-			    </label>
+			    <!-- <div class="timesTitle">请选择班次：</div> -->
+			    <!-- <label class="weui-cell weui-check__label"> -->
+                    <!-- {% for slot in slots %} -->
+			    <!--     <div class="weui-cell__bd time_detail" data-evt="{{ slot.id }}"> -->
+                        <!-- <p >{{ slot.start_time }} ~ {{ slot.end_time }} --> 
+                        <!-- 余号: {{ slot.remaining }}</p> -->
+			    <!--         <1!-- <p>晚上 17:30 ~ 21:00 余号：14</p> --1> -->
+			    <!--     </div> -->
+			    <!--     <div class="weui-cell__ft" data-evt="{{ slot.id }}"> -->
+			    <!--         <input type="radio" class="weui-check"> -->
+			    <!--         <span class="weui-icon-checked"></span> -->
+			    <!--     </div> -->
+                    <!-- {% endfor %} -->
+			    <!-- </label> -->
 			    <!-- <label class="weui-cell weui-check__label">
 			        <div class="weui-cell__bd">
 			            <p>cell standard</p>
@@ -67,14 +71,22 @@
 			            <span class="weui-icon-checked"></span>
 			        </div>
 			    </label> -->
-			</div>
+			<!-- </div> -->
 		</div>
 		<div class="sicker">
 			<div class="weui-cells weui-cells_form">
 				<div class="sickerTitle">请填写就诊人信息：</div>
 				<div class="weui-cell weui-cell_vcode inpLine">
 			        <div class="weui-cell__hd">
-			            <label class="weui-label">姓名</label>
+			            <label class="weui-label">姓</label>
+			        </div>
+			        <div class="weui-cell__bd">
+			            <input class="weui-input" type="text" placeholder="请输入姓名">
+			        </div>
+			    </div>
+                <div class="weui-cell weui-cell_vcode inpLine">
+                    <div class="weui-cell__hd">
+			            <label class="weui-label">名</label>
 			        </div>
 			        <div class="weui-cell__bd">
 			            <input class="weui-input" type="text" placeholder="请输入姓名">
@@ -87,10 +99,9 @@
 			        <div class="weui-cell__bd">
 				        <div class="weui-cell weui-cell_select">
 					        <div class="weui-cell__bd">
-					            <select class="weui-select" style="padding-left: 0;">
-					                <option value="请选择">请选择</option>
-					                <option value="男">男</option>
-					                <option value="女">女</option>
+					            <select class="weui-select" style="padding-left: 0;" name="gender">
+					                <option value="M">男</option>
+					                <option value="F">女</option>
 					            </select>
 					        </div>
 					    </div>
@@ -101,7 +112,7 @@
 			            <label class="weui-label">手机号</label>
 			        </div>
 			        <div class="weui-cell__bd">
-			            <input class="weui-input" type="tel" placeholder="请输入手机号">
+			            <input class="weui-input" type="tel" placeholder="请输入手机号" name="contact_number">
 			        </div>
 			    </div>
 			    
@@ -139,15 +150,5 @@
 		.inpLine{height: 36px;line-height: 36px;}
 		.botHelp{width: 100%;height: 30px;}
 	</style>
-
-    <script>
-        $('select').change(function() {
-            var $evt = $(this).val();
-            console.log($evt);
-            $(':input[type="checkbox"]').prop('checked', false);
-            $('.time_detail').hide()
-            $('[data-evt="'+ $evt +'"]').show();
-        });
-    </script>
 </body>
 </html>
