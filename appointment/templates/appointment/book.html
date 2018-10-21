@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
 </head>
 <body>
-	<form action="" method="post">
+    <form action="{% url 'appointment:reserve' %}" method="post">
 		<div class="warp">
 			<header><div class="header">开始预约</div></header>
 			<div class="line"><div>就诊机构：</div><div>圣大中医馆</div></div>
@@ -36,7 +36,7 @@
 				        <div class="weui-cell__bd">
 					        <div class="weui-cell weui-cell_select">
 						        <div class="weui-cell__bd">
-						            <select class="weui-select" style="padding-left: 0;" name="">
+						            <select class="weui-select" style="padding-left: 0;" name="slot_id">
 	                                    {% for slot in slots %}
 	                                    <option value="{{ slot.id }}">
 	                                    {{ slot.date }}
@@ -82,7 +82,7 @@
 				            <label class="weui-label">姓</label>
 				        </div>
 				        <div class="weui-cell__bd">
-				            <input class="weui-input" type="text" placeholder="请输入姓名" name="">
+				            <input class="weui-input" type="text" placeholder="请输入姓名" name="patient_lastname">
 				        </div>
 				    </div>
 	                <div class="weui-cell weui-cell_vcode inpLine">
@@ -90,7 +90,7 @@
 				            <label class="weui-label">名</label>
 				        </div>
 				        <div class="weui-cell__bd">
-				            <input class="weui-input" type="text" placeholder="请输入姓名" name="">
+				            <input class="weui-input" type="text" placeholder="请输入姓名" name="patient_firstname">
 				        </div>
 				    </div>
 				    <div class="weui-cell weui-cell_vcode inpLine">
@@ -121,7 +121,7 @@
 				<div class="weui-cells__tips">请如实填写，以便联系使用。</div>
 			</div>
 			<div class="weui-btn-area">
-			    <span class="weui-btn weui-btn_primary">提交预约</span>
+			    <span class="weui-btn weui-btn_primary" type='submit'>提交预约</span>
 			</div>
 			<div class="botHelp"></div>
 		</div>

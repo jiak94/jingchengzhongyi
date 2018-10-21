@@ -33,16 +33,17 @@ def timeslot(request, doctor_id):
     return render(request, 'appointment/book.html', context)
 
 
-def booking(request, timeslot_id):
+def reserve(request):
     if request.mothod == 'POST':
         request_obj = request.POST
         #create appointment per request
+        slot_id = request_obj['slot_id']
         patient_firstname = request_obj['patient_firstname']
         patient_lastname = request_obj['patient_lastname']
         gender = request_obj['gender']
         contact_number = request_obj['contact_number']
 
-        appointment = Appointment.object.create(time_slot=timeslot_id,
+        appointment = Appointment.object.create(time_slot=slot_id,
                                                 patient_first_name=patient_firstname,
                                                 patient_last_name=patient_lastname,
                                                 gender=gender,
@@ -50,4 +51,4 @@ def booking(request, timeslot_id):
         print(appointment)
     else:
         response = "You are booking appointment for %s"
-        return HttpResponse(response % timeslot_id)
+        return HttpResponse(response % 1)
