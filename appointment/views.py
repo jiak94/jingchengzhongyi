@@ -34,7 +34,7 @@ def timeslot(request, doctor_id):
 
 
 def reserve(request):
-    if request.mothod == 'POST':
+    if request.method == 'POST':
         request_obj = request.POST
         #create appointment per request
         slot_id = request_obj['slot_id']
@@ -43,12 +43,23 @@ def reserve(request):
         gender = request_obj['gender']
         contact_number = request_obj['contact_number']
 
-        appointment = Appointment.object.create(time_slot=slot_id,
+        time_slot_instance = TimeSlot.objects.get(id=slot_id)
+
+        remaining = time_slot_instance.remaining
+
+        if remaining <= 0:
+            return render(request, 'appointment/fail.html')
+        else:
+            time_slot_instance.remaining -= 1
+            time_slot_instance.save()
+
+        appointment = Appointment(timeslot=time_slot_instance,
                                                 patient_first_name=patient_firstname,
                                                 patient_last_name=patient_lastname,
                                                 gender=gender,
                                                 contact_number=contact_number)
+        appointment.save()
         print(appointment)
+        return render(request, 'appointment/success.html')
     else:
-        response = "You are booking appointment for %s"
-        return HttpResponse(response % 1)
+        return doctors(request)
