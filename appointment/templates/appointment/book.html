@@ -22,7 +22,7 @@
 					<div class="title">
 	                    <span>{{ doctor.lastname }}{{ doctor.firstname }}</span>
 	                    <span>{{ doctor.occupation }}</span>
-						{% if len(slots) == 0 %}
+						{% if slots %}
 						<span><div>无号</div></span>
 						{% else %}
 						<span><div>有号</div></span>
