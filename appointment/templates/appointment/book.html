@@ -31,6 +31,7 @@
 	                <div class="disc">{{ doctor.description }}</div>
 				</div>
 			</div>
+			{% if slots %}
 			<div class="times">
 				<div class="weui-cells weui-cells_radio">
 					<div class="timesTitle">请选择日期：</div>
@@ -128,6 +129,11 @@
 			<div class="weui-btn-area">
 			    <span class="weui-btn weui-btn_primary btn">提交预约</span>
 			</div>
+			{% else %}
+			<p>
+				<h2>暂无可预约信息！</h2>
+			</p>
+			{% endif %}
 			<div class="botHelp"></div>
 		</div>
 	</form>
