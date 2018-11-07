@@ -34,8 +34,9 @@ class TimeSlot(models.Model):
         return ('%s From %s to %s' % (name, self.start_time, self.end_time))
 
 class Appointment(models.Model):
-    patient_first_name = models.CharField(blank=False, max_length=5)
-    patient_last_name = models.CharField(blank=False, max_length=5)
+    #patient_first_name = models.CharField(blank=False, max_length=5)
+    #patient_last_name = models.CharField(blank=False, max_length=5)
+    patient_name = models.CharField(blank=False, max_length=5)
     timeslot = models.ForeignKey(TimeSlot, on_delete=models.CASCADE)
     GENDER_CHOICE = (
         ('F', 'Female'),
@@ -47,4 +48,4 @@ class Appointment(models.Model):
     contact_number = models.CharField(max_length=11, blank=False)
 
     def __str__(self):
-        return ('%s %s' % (self.patient_last_name, self.patient_first_name))
+        return ('%s %s' % (self.patient_name))
