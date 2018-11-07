@@ -48,4 +48,4 @@ class Appointment(models.Model):
     contact_number = models.CharField(max_length=11, blank=False)
 
     def __str__(self):
-        return ('%s %s' % (self.patient_name))
+        return ('%s' % (self.patient_name))
