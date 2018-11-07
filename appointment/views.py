@@ -38,8 +38,9 @@ def reserve(request):
         request_obj = request.POST
         #create appointment per request
         slot_id = request_obj['slot_id']
-        patient_firstname = request_obj['patient_firstname']
-        patient_lastname = request_obj['patient_lastname']
+        # patient_firstname = request_obj['patient_firstname']
+        # patient_lastname = request_obj['patient_lastname']
+        patient_name = request_obj['patient_name']
         gender = request_obj['gender']
         contact_number = request_obj['contact_number']
 
@@ -54,8 +55,7 @@ def reserve(request):
             time_slot_instance.save()
 
         appointment = Appointment(timeslot=time_slot_instance,
-                                                patient_first_name=patient_firstname,
-                                                patient_last_name=patient_lastname,
+                                                patient_name=patient_name,
                                                 gender=gender,
                                                 contact_number=contact_number)
         appointment.save()
