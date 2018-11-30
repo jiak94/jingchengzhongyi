@@ -36,24 +36,29 @@
 				<div class="weui-cells weui-cells_radio">
 					<div class="timesTitle">请选择日期：</div>
 			        <div class="weui-cells weui-cells_radio">
+                        {% for slot in slots %}
 					    <label class="weui-cell weui-check__label">
 					        <div class="weui-cell__bd">
-					            <p>cell standard</p>
+					            <!-- <p>cell standard</p> -->
+                                <p>{{ slot.start_time }} ~ {{slot.end_time}}
+                                余号: {{slot.remaining}}
+                                </p>
 					        </div>
 					        <div class="weui-cell__ft">
 					            <input type="radio" class="weui-check" name="radio1" checked="checked">
 					            <span class="weui-icon-checked"></span>
 					        </div>
 					    </label>
-					    <label class="weui-cell weui-check__label">
-					        <div class="weui-cell__bd">
-					            <p>cell standard</p>
-					        </div>
-					        <div class="weui-cell__ft">
-					            <input type="radio" name="radio1" class="weui-check">
-					            <span class="weui-icon-checked"></span>
-					        </div>
-					    </label>
+                        {% endfor %}
+					    <!-- <label class="weui-cell weui-check__label"> -->
+					    <!--     <div class="weui-cell__bd"> -->
+					    <!--         <p>cell standard</p> -->
+					    <!--     </div> -->
+					    <!--     <div class="weui-cell__ft"> -->
+					    <!--         <input type="radio" name="radio1" class="weui-check"> -->
+					    <!--         <span class="weui-icon-checked"></span> -->
+					    <!--     </div> -->
+					    <!-- </label> -->
 					</div>
 				    <!-- <div class="timesTitle">请选择班次：</div> -->
 				    <!-- <label class="weui-cell weui-check__label"> -->
